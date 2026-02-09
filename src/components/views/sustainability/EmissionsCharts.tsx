@@ -60,6 +60,7 @@ const EmissionsCharts = () => {
                                     outerRadius={80}
                                     paddingAngle={5}
                                     dataKey="value"
+                                    nameKey="mode"
                                 >
                                     {modeEmissions.map((entry, index) => (
                                         <Cell key={`cell-${index}`} fill={entry.color} />
