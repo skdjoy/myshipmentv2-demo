@@ -19,15 +19,15 @@ const LandedCostCalculator = () => {
             <div className="flex flex-col lg:flex-row gap-8 items-center">
                 {/* Chart */}
                 <div className="w-full lg:w-1/2 flex items-center">
-                    <div className="w-1/2 h-64">
+                    <div className="w-48 h-48 flex-shrink-0">
                         <ResponsiveContainer width="100%" height="100%">
                             <PieChart>
                                 <Pie
                                     data={costData}
                                     cx="50%"
                                     cy="50%"
-                                    innerRadius={60}
-                                    outerRadius={80}
+                                    innerRadius={50}
+                                    outerRadius={70}
                                     paddingAngle={5}
                                     dataKey="value"
                                 >
@@ -39,7 +39,7 @@ const LandedCostCalculator = () => {
                             </PieChart>
                         </ResponsiveContainer>
                     </div>
-                    <div className="w-1/2 pl-4">
+                    <div className="flex-1 pl-4">
                         <ul className="space-y-3">
                             {costData.map((item, index) => (
                                 <li key={index} className="flex items-start">
