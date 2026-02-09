@@ -13,13 +13,9 @@ const Finance: React.FC = () => {
 
             <FinanceKPIs />
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div className="lg:col-span-2">
-                    <InvoiceTable />
-                </div>
-                <div>
-                    <LandedCostCalculator />
-                </div>
+            <div className="flex flex-col gap-8">
+                <InvoiceTable />
+                <LandedCostCalculator />
             </div>
         </div>
     );
