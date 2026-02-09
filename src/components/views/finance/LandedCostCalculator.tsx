@@ -18,16 +18,16 @@ const LandedCostCalculator = () => {
 
             <div className="flex flex-col lg:flex-row gap-8 items-center">
                 {/* Chart */}
-                <div className="w-full lg:w-1/2 flex items-center">
-                    <div className="w-48 h-48 flex-shrink-0">
+                <div className="w-full lg:w-1/2 flex flex-col items-center">
+                    <div className="w-full h-56">
                         <ResponsiveContainer width="100%" height="100%">
                             <PieChart>
                                 <Pie
                                     data={costData}
                                     cx="50%"
                                     cy="50%"
-                                    innerRadius={50}
-                                    outerRadius={70}
+                                    innerRadius={60}
+                                    outerRadius={80}
                                     paddingAngle={5}
                                     dataKey="value"
                                 >
@@ -39,17 +39,17 @@ const LandedCostCalculator = () => {
                             </PieChart>
                         </ResponsiveContainer>
                     </div>
-                    <div className="flex-1 pl-4">
-                        <ul className="space-y-3">
+                    <div className="w-full mt-4 bg-slate-50 rounded-lg p-4">
+                        <ul className="grid grid-cols-2 gap-3">
                             {costData.map((item, index) => (
                                 <li key={index} className="flex items-start">
                                     <span
-                                        className="w-3 h-3 rounded-full mt-1 mr-2 flex-shrink-0"
+                                        className="w-2.5 h-2.5 rounded-full mt-1 mr-2 flex-shrink-0"
                                         style={{ backgroundColor: item.color }}
                                     ></span>
                                     <div>
-                                        <div className="text-xs font-medium text-slate-500">{item.name}</div>
-                                        <div className="text-sm font-bold text-navy-900">${item.value.toLocaleString()}</div>
+                                        <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wide">{item.name}</div>
+                                        <div className="text-xs font-bold text-navy-900">${item.value.toLocaleString()}</div>
                                     </div>
                                 </li>
                             ))}
