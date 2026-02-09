@@ -1,6 +1,6 @@
 
 
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 
 const LandedCostCalculator = () => {
     const costData = [
@@ -18,26 +18,43 @@ const LandedCostCalculator = () => {
 
             <div className="flex flex-col lg:flex-row gap-8 items-center">
                 {/* Chart */}
-                <div className="w-full lg:w-1/2 h-64">
-                    <ResponsiveContainer width="100%" height="100%">
-                        <PieChart>
-                            <Pie
-                                data={costData}
-                                cx="50%"
-                                cy="50%"
-                                innerRadius={60}
-                                outerRadius={80}
-                                paddingAngle={5}
-                                dataKey="value"
-                            >
-                                {costData.map((entry, index) => (
-                                    <Cell key={`cell-${index}`} fill={entry.color} />
-                                ))}
-                            </Pie>
-                            <Tooltip formatter={(value: any) => `$${value.toLocaleString()}`} />
-                            <Legend />
-                        </PieChart>
-                    </ResponsiveContainer>
+                <div className="w-full lg:w-1/2 flex items-center">
+                    <div className="w-1/2 h-64">
+                        <ResponsiveContainer width="100%" height="100%">
+                            <PieChart>
+                                <Pie
+                                    data={costData}
+                                    cx="50%"
+                                    cy="50%"
+                                    innerRadius={60}
+                                    outerRadius={80}
+                                    paddingAngle={5}
+                                    dataKey="value"
+                                >
+                                    {costData.map((entry, index) => (
+                                        <Cell key={`cell-${index}`} fill={entry.color} />
+                                    ))}
+                                </Pie>
+                                <Tooltip formatter={(value: any) => `$${value.toLocaleString()}`} />
+                            </PieChart>
+                        </ResponsiveContainer>
+                    </div>
+                    <div className="w-1/2 pl-4">
+                        <ul className="space-y-3">
+                            {costData.map((item, index) => (
+                                <li key={index} className="flex items-start">
+                                    <span
+                                        className="w-3 h-3 rounded-full mt-1 mr-2 flex-shrink-0"
+                                        style={{ backgroundColor: item.color }}
+                                    ></span>
+                                    <div>
+                                        <div className="text-xs font-medium text-slate-500">{item.name}</div>
+                                        <div className="text-sm font-bold text-navy-900">${item.value.toLocaleString()}</div>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
 
                 {/* Breakdown Table */}
