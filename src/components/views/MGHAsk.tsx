@@ -22,8 +22,8 @@ interface Message {
 const RecommendedQuestions = [
     { label: "Status of PO-12345?", icon: Clock, query: "What is the status of PO-12345?" },
     { label: "Current TAT Performance?", icon: TrendingUp, query: "Show me current TAT performance." },
-    { label: "Any delays in PO-12345?", icon: AlertTriangle, query: "Are there any delays for PO-12345?" },
-    { label: "Risk at POL Chittagong?", icon: AlertTriangle, query: "Which shipments from POS Chittagong are at risk?" },
+    { label: "Any delays in PO-232345?", icon: AlertTriangle, query: "Are there any delays for PO-232345?" },
+    { label: "Risk at POL Chittagong?", icon: AlertTriangle, query: "Which shipments from POL Chittagong are at risk?" },
     { label: "Container Optimization KPI?", icon: BarChart2, query: "Show me container optimization KPIs." },
 ];
 
@@ -77,9 +77,9 @@ const MGHAsk = () => {
         }
 
         // 3. Delays
-        if (lowerQuery.includes('delay') && lowerQuery.includes('po-12345')) {
+        if (lowerQuery.includes('delay') && lowerQuery.includes('po-232345')) {
             return {
-                text: "Yes, **PO-12345** is flagged for a potential **3-day delay** due to a raw material shortage reported by the supplier. We are monitoring the situation."
+                text: "Yes, **PO-232345** is flagged for a potential **3-day delay** due to a raw material shortage reported by the supplier. We are monitoring the situation."
             };
         }
 
