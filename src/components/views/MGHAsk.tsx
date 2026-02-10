@@ -54,14 +54,7 @@ const MGHAsk = () => {
         // 1. Shipment/PO Status
         if (lowerQuery.includes('status') && lowerQuery.includes('po-12345')) {
             return {
-                text: "PO-12345 is currently in **Production**. The estimated shipping date (ESD) is Nov 15, 2026. Everything is on schedule. Here is the progress:",
-                chart: {
-                    type: 'bar',
-                    title: "PO-12345 Progress",
-                    data: [{ name: 'Completion', value: 65 }],
-                    keys: ['value'],
-                    colors: ['#00D4AA']
-                }
+                text: "PO-12345 is currently in **Production**. The estimated shipping date (ESD) is Nov 15, 2026. Everything is on schedule."
             };
         }
 
@@ -86,14 +79,7 @@ const MGHAsk = () => {
         // 3. Delays
         if (lowerQuery.includes('delay') && lowerQuery.includes('po-12345')) {
             return {
-                text: "Yes, **PO-12345** is flagged for a potential **3-day delay** due to a raw material shortage reported by the supplier. We are monitoring the situation.",
-                chart: {
-                    type: 'bar', // Using a simple bar to visualize delay impact? Or maybe no chart is better. Let's do a comparison.
-                    title: "Delay Impact (Days)",
-                    data: [{ name: 'Planned', value: 0 }, { name: 'Projected Delay', value: 3 }],
-                    keys: ['value'],
-                    colors: ['#94A3B8', '#EF4444']
-                }
+                text: "Yes, **PO-12345** is flagged for a potential **3-day delay** due to a raw material shortage reported by the supplier. We are monitoring the situation."
             };
         }
 
