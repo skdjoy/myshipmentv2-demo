@@ -8,8 +8,7 @@ import BookingEngine from './components/views/BookingEngine';
 import Documents from './components/views/Documents';
 import Finance from './components/views/Finance';
 import Sustainability from './components/views/Sustainability';
-
-import AIChatWidget from './components/chat/AIChatWidget';
+import MGHAsk from './components/views/MGHAsk';
 
 function App() {
   const [activeView, setActiveView] = useState('dashboard');
@@ -24,6 +23,7 @@ function App() {
       case 'documents': return <Documents />;
       case 'finance': return <Finance />;
       case 'sustainability': return <Sustainability />;
+      case 'mgh-ask': return <MGHAsk />;
       default: return <Dashboard />;
     }
   };
@@ -44,8 +44,6 @@ function App() {
           {renderView()}
         </main>
       </div>
-
-      <AIChatWidget />
     </div>
   );
 }

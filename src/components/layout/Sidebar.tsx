@@ -9,7 +9,8 @@ import {
     Leaf,
     Settings,
     ChevronLeft,
-    ChevronRight
+    ChevronRight,
+    MessageSquare
 } from 'lucide-react';
 import clsx from 'clsx';
 
@@ -30,6 +31,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isOpen, se
         { id: 'finance', label: 'Finance', icon: DollarSign },
         { id: 'sustainability', label: 'Sustainability', icon: Leaf },
         { id: 'settings', label: 'Settings', icon: Settings, disabled: true },
+        { id: 'mgh-ask', label: 'MGH Ask', icon: MessageSquare },
     ];
 
     return (
