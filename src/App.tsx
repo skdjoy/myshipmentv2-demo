@@ -9,6 +9,8 @@ import Documents from './components/views/Documents';
 import Finance from './components/views/Finance';
 import Sustainability from './components/views/Sustainability';
 
+import AIChatWidget from './components/chat/AIChatWidget';
+
 function App() {
   const [activeView, setActiveView] = useState('dashboard');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -42,6 +44,8 @@ function App() {
           {renderView()}
         </main>
       </div>
+
+      <AIChatWidget />
     </div>
   );
 }
