@@ -17,6 +17,7 @@ interface Message {
     sender: 'user' | 'bot';
     timestamp: Date;
     chart?: ChartData;
+    suggestions?: { label: string; query: string }[];
 }
 
 const RecommendedQuestions = [
@@ -48,7 +49,7 @@ const MGHAsk = () => {
         scrollToBottom();
     }, [messages, isTyping]);
 
-    const generateResponse = (query: string): { text: string, chart?: ChartData } => {
+    const generateResponse = (query: string): { text: string, chart?: ChartData, suggestions?: { label: string; query: string }[] } => {
         const lowerQuery = query.toLowerCase();
 
         // 1. Shipment/PO Status
@@ -138,7 +139,8 @@ const MGHAsk = () => {
 
         // Default
         return {
-            text: "I can assist with shipment tracking, PO status, risk analysis, and KPIs. Try tapping one of the suggested questions below."
+            text: "I can assist with shipment tracking, PO status, risk analysis, and KPIs. Try tapping one of the suggested questions below.",
+            suggestions: RecommendedQuestions.map(q => ({ label: q.label, query: q.query }))
         };
     };
 
@@ -165,6 +167,7 @@ const MGHAsk = () => {
                 id: Date.now() + 1,
                 text: response.text,
                 chart: response.chart,
+                suggestions: response.suggestions,
                 sender: 'bot',
                 timestamp: new Date()
             };
@@ -336,6 +339,19 @@ const MGHAsk = () => {
                             )}>
                                 {renderMessageText(msg.text)}
                                 {msg.chart && renderChart(msg.chart)}
+                                {msg.suggestions && (
+                                    <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+                                        {msg.suggestions.map((s, i) => (
+                                            <button
+                                                key={i}
+                                                onClick={() => handleSendMessage(undefined, s.query)}
+                                                className="text-left p-3 rounded-xl border border-slate-200 bg-white hover:bg-ocean/5 hover:border-ocean/50 transition-all text-sm font-medium text-navy-900"
+                                            >
+                                                {s.label}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
                                 <div className={clsx(
                                     "text-[10px] mt-2 opacity-70",
                                     msg.sender === 'user' ? "text-blue-100" : "text-slate-400"
