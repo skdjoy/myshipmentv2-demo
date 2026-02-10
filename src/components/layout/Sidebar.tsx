@@ -30,8 +30,8 @@ const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isOpen, se
         { id: 'documents', label: 'Documents', icon: FileText },
         { id: 'finance', label: 'Finance', icon: DollarSign },
         { id: 'sustainability', label: 'Sustainability', icon: Leaf },
-        { id: 'settings', label: 'Settings', icon: Settings, disabled: true },
         { id: 'mgh-ask', label: 'MGH Ask', icon: MessageSquare },
+        { id: 'settings', label: 'Settings', icon: Settings, disabled: true },
     ];
 
     return (
