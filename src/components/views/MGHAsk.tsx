@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Sparkles, Clock, Plus, BarChart2, PieChart as PieChartIcon, AlertTriangle, TrendingUp } from 'lucide-react';
+import { Send, Bot, User, Clock, Plus, BarChart2, AlertTriangle, TrendingUp } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, AreaChart, Area, CartesianGrid } from 'recharts';
 import clsx from 'clsx';
 
